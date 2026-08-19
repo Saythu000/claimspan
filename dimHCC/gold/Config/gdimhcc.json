@@ -1,0 +1,17 @@
+{
+  "SubLayerProcessing": [
+    {
+      "SubGroupEntity": "dimHCC",
+      "DestinationTable": "claimspan.gold.gold_dimhcc",
+      "SourceTables": [
+        {
+          "Entity": "hcc",
+          "SourceTable": "claimspan.silver.silver_hcc",
+          "SourceFormat": "delta"
+        }
+      ],
+      "SQLScript": "SELECT h.HCCNumber, h.HCCDescription, h.HCCVersion, h.HCCType, h.IsChronic, h.EffectiveYear, h.EffectiveDateStart, h.EffectiveDateEnd, h.hashKey, hash(concat(coalesce(cast(h.HCCNumber as string), '|'), '|', coalesce(cast(h.HCCVersion as string), '|'), '|', coalesce(cast(h.HCCType as string), '|'), '|', coalesce(cast(h.EffectiveYear as string), '|'))) AS hccKey FROM hcc h",
+      "MergeScript": "MERGE INTO claimspan.gold.gold_dimhcc t USING (SELECT * FROM tempSQLScript) s ON coalesce(s.HCCNumber,'|') = coalesce(t.HCCNumber,'|') AND coalesce(cast(s.EffectiveYear as string),'|') = coalesce(cast(t.EffectiveYear as string),'|') AND coalesce(s.HCCVersion,'|') = coalesce(t.HCCVersion,'|') AND coalesce(s.HCCType,'|') = coalesce(t.HCCType,'|') WHEN MATCHED AND t.hashKey <> s.hashKey THEN UPDATE SET t.HCCNumber = s.HCCNumber, t.HCCDescription = s.HCCDescription, t.HCCVersion = s.HCCVersion, t.HCCType = s.HCCType, t.IsChronic = s.IsChronic, t.EffectiveYear = s.EffectiveYear, t.EffectiveDateStart = s.EffectiveDateStart, t.EffectiveDateEnd = s.EffectiveDateEnd, t.hashKey = s.hashKey, t.hccKey = s.hccKey WHEN NOT MATCHED THEN INSERT (HCCNumber, HCCDescription, HCCVersion, HCCType, IsChronic, EffectiveYear, EffectiveDateStart, EffectiveDateEnd, hashKey, hccKey) VALUES (s.HCCNumber, s.HCCDescription, s.HCCVersion, s.HCCType, s.IsChronic, s.EffectiveYear, s.EffectiveDateStart, s.EffectiveDateEnd, s.hashKey, s.hccKey)"
+    }
+  ]
+}

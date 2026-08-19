@@ -1,0 +1,17 @@
+{
+  "SubLayerProcessing": [
+    {
+      "SubGroupEntity": "gapsInCare",
+      "DestinationTable": "claimspan.silver.silver_gapsincare",
+      "SourceTables": [
+        {
+          "Entity": "GapsInCare",
+          "SourceTable": "claimspan.bronze.quality_measures",
+          "SourceFormat": "parquet"
+        }
+      ],
+      "SQLScriptPath": "../DataProcessing/gapsincareprocessing.sql",
+      "MergeScriptPath": "../DataUpdate/gapsincareupdate.sql"
+    }
+  ]
+}

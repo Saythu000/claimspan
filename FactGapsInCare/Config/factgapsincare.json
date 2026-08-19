@@ -1,0 +1,43 @@
+{
+  "SubLayerProcessing": [
+    {
+      "SubGroupEntity": "factGapsInCare",
+      "DestinationTable": "claimspan.gold.factgapsincare",
+      "SourceTables": [
+        {
+          "Entity": "silver_gapsincare",
+          "SourceTable": "claimspan.silver.silver_gapsincare",
+          "SourceFormat": "delta"
+        },
+        {
+          "Entity": "gold_dimQualityYearMonth",
+          "SourceTable": "claimspan.gold.gold_dimqualityyearmonth",
+          "SourceFormat": "delta"
+        },
+        {
+          "Entity": "gold_dimMember",
+          "SourceTable": "claimspan.gold.gold_dimmember",
+          "SourceFormat": "delta"
+        },
+        {
+          "Entity": "gold_dimQualityMeasure",
+          "SourceTable": "claimspan.gold.gold_dimqualitymeasure",
+          "SourceFormat": "delta"
+        },
+        {
+          "Entity": "gold_dimQualityEvent",
+          "SourceTable": "claimspan.gold.gold_dimqualityevent",
+          "SourceFormat": "delta"
+        },
+        {
+          "Entity": "gold_dimdate",
+          "SourceTable": "claimspan.gold.gold_dimdate",
+          "SourceFormat": "delta"
+        }
+      ],
+      "SQLScriptPath": "../DataProcessing/factgapsincareprocessing.sql",
+      "MergeScriptPath": "../DataUpdate/factgapsincareupdate.sql",
+      "SQLDupScript": "../DataProcessing/factgapsincaredup.sql"
+    }
+  ]
+}

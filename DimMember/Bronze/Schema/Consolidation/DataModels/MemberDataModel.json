@@ -1,0 +1,594 @@
+{
+  "Fields": [
+    {
+      "FieldName": "ClientID",
+      "DataType": "StringType",
+      "Ordinal": 1
+    },
+    {
+      "FieldName": "FileID",
+      "DataType": "IntegerType",
+      "Ordinal": 2
+    },
+    {
+      "FieldName": "LoadDateTime",
+      "DataType": "DateType",
+      "Ordinal": 3
+    },
+    {
+      "FieldName": "FileLayoutID",
+      "DataType": "IntegerType",
+      "Ordinal": 4
+    },
+    {
+      "FieldName": "FileLayoutDescription",
+      "DataType": "StringType",
+      "Ordinal": 5
+    },
+    {
+      "FieldName": "extension_transactionType",
+      "DataType": "StringType",
+      "Ordinal": 6
+    },
+    {
+      "FieldName": "identifier_uniquepersonkey",
+      "DataType": "StringType",
+      "Ordinal": 7
+    },
+    {
+      "FieldName": "identifier_planMemberID",
+      "DataType": "StringType",
+      "Ordinal": 8
+    },
+    {
+      "FieldName": "identifier_subscriberID",
+      "DataType": "StringType",
+      "Ordinal": 9
+    },
+    {
+      "FieldName": "extension_coverage_startDate",
+      "DataType": "DateType",
+      "Ordinal": 10
+    },
+    {
+      "FieldName": "extension_coverage_endDate",
+      "DataType": "DateType",
+      "Ordinal": 11
+    },
+    {
+      "FieldName": "extension_subscriberFlag",
+      "DataType": "StringType",
+      "Ordinal": 12
+    },
+    {
+      "FieldName": "identifier_beneficiaryID",
+      "DataType": "StringType",
+      "Ordinal": 13
+    },
+    {
+      "FieldName": "name_text",
+      "DataType": "StringType",
+      "Ordinal": 14
+    },
+    {
+      "FieldName": "name_family",
+      "DataType": "StringType",
+      "Ordinal": 15
+    },
+    {
+      "FieldName": "name_given_first",
+      "DataType": "StringType",
+      "Ordinal": 16
+    },
+    {
+      "FieldName": "name_given_middle",
+      "DataType": "StringType",
+      "Ordinal": 17
+    },
+    {
+      "FieldName": "name_prefix",
+      "DataType": "StringType",
+      "Ordinal": 18
+    },
+    {
+      "FieldName": "name_suffix",
+      "DataType": "StringType",
+      "Ordinal": 19
+    },
+    {
+      "FieldName": "extension_gatewayMemberStatus",
+      "DataType": "StringType",
+      "Ordinal": 20
+    },
+    {
+      "FieldName": "identifier_alternateMemberID",
+      "DataType": "StringType",
+      "Ordinal": 21
+    },
+    {
+      "FieldName": "identifier_enrolleeUniqueID",
+      "DataType": "StringType",
+      "Ordinal": 22
+    },
+    {
+      "FieldName": "birthDate",
+      "DataType": "DateType",
+      "Ordinal": 23
+    },
+    {
+      "FieldName": "deceasedDateTime",
+      "DataType": "DateType",
+      "Ordinal": 24
+    },
+    {
+      "FieldName": "gender",
+      "DataType": "StringType",
+      "Ordinal": 25
+    },
+    {
+      "FieldName": "identifier_ssn",
+      "DataType": "StringType",
+      "Ordinal": 26
+    },
+    {
+      "FieldName": "address_permanent_line1",
+      "DataType": "StringType",
+      "Ordinal": 27
+    },
+    {
+      "FieldName": "address_permanent_line2",
+      "DataType": "StringType",
+      "Ordinal": 28
+    },
+    {
+      "FieldName": "address_permanent_line3",
+      "DataType": "StringType",
+      "Ordinal": 29
+    },
+    {
+      "FieldName": "address_permanent_city",
+      "DataType": "StringType",
+      "Ordinal": 30
+    },
+    {
+      "FieldName": "address_permanent_district",
+      "DataType": "StringType",
+      "Ordinal": 31
+    },
+    {
+      "FieldName": "address_permanent_state",
+      "DataType": "StringType",
+      "Ordinal": 32
+    },
+    {
+      "FieldName": "address_permanent_extension_scc",
+      "DataType": "StringType",
+      "Ordinal": 33
+    },
+    {
+      "FieldName": "address_permanent_postalCode",
+      "DataType": "StringType",
+      "Ordinal": 34
+    },
+    {
+      "FieldName": "address_mailing_line1",
+      "DataType": "StringType",
+      "Ordinal": 35
+    },
+    {
+      "FieldName": "address_mailing_line2",
+      "DataType": "StringType",
+      "Ordinal": 36
+    },
+    {
+      "FieldName": "address_mailing_line3",
+      "DataType": "StringType",
+      "Ordinal": 37
+    },
+    {
+      "FieldName": "address_mailing_city",
+      "DataType": "StringType",
+      "Ordinal": 38
+    },
+    {
+      "FieldName": "address_mailing_state",
+      "DataType": "StringType",
+      "Ordinal": 39
+    },
+    {
+      "FieldName": "address_mailing_postalCode",
+      "DataType": "StringType",
+      "Ordinal": 40
+    },
+    {
+      "FieldName": "address_mailing_district",
+      "DataType": "StringType",
+      "Ordinal": 41
+    },
+    {
+      "FieldName": "address_billing_line1",
+      "DataType": "StringType",
+      "Ordinal": 42
+    },
+    {
+      "FieldName": "address_billing_line2",
+      "DataType": "StringType",
+      "Ordinal": 43
+    },
+    {
+      "FieldName": "address_billing_line3",
+      "DataType": "StringType",
+      "Ordinal": 44
+    },
+    {
+      "FieldName": "address_billing_city",
+      "DataType": "StringType",
+      "Ordinal": 45
+    },
+    {
+      "FieldName": "address_billing_state",
+      "DataType": "StringType",
+      "Ordinal": 46
+    },
+    {
+      "FieldName": "address_billing_postalCode",
+      "DataType": "StringType",
+      "Ordinal": 47
+    },
+    {
+      "FieldName": "telecom_phone_home",
+      "DataType": "StringType",
+      "Ordinal": 48
+    },
+    {
+      "FieldName": "telecom_phone_alternate",
+      "DataType": "StringType",
+      "Ordinal": 49
+    },
+    {
+      "FieldName": "telecom_email",
+      "DataType": "StringType",
+      "Ordinal": 50
+    },
+    {
+      "FieldName": "contact_emergency_name_text",
+      "DataType": "StringType",
+      "Ordinal": 51
+    },
+    {
+      "FieldName": "contact_emergency_relationship",
+      "DataType": "StringType",
+      "Ordinal": 52
+    },
+    {
+      "FieldName": "contact_emergency_telecom_phone",
+      "DataType": "StringType",
+      "Ordinal": 53
+    },
+    {
+      "FieldName": "extension_idCardTriggerFlag",
+      "DataType": "StringType",
+      "Ordinal": 54
+    },
+    {
+      "FieldName": "extension_endangeredMemberFlag",
+      "DataType": "StringType",
+      "Ordinal": 55
+    },
+    {
+      "FieldName": "extension_ooaProcess",
+      "DataType": "StringType",
+      "Ordinal": 56
+    },
+    {
+      "FieldName": "extension_ooaSource",
+      "DataType": "StringType",
+      "Ordinal": 57
+    },
+    {
+      "FieldName": "extension_dateOfMove",
+      "DataType": "DateType",
+      "Ordinal": 58
+    },
+    {
+      "FieldName": "extension_moveDeadline",
+      "DataType": "DateType",
+      "Ordinal": 59
+    },
+    {
+      "FieldName": "identifier_medicaidID",
+      "DataType": "StringType",
+      "Ordinal": 60
+    },
+    {
+      "FieldName": "extension_medicarePartA_effectiveDate",
+      "DataType": "DateType",
+      "Ordinal": 61
+    },
+    {
+      "FieldName": "extension_medicarePartA_endDate",
+      "DataType": "DateType",
+      "Ordinal": 62
+    },
+    {
+      "FieldName": "extension_medicarePartB_effectiveDate",
+      "DataType": "DateType",
+      "Ordinal": 63
+    },
+    {
+      "FieldName": "extension_medicarePartB_endDate",
+      "DataType": "DateType",
+      "Ordinal": 64
+    },
+    {
+      "FieldName": "extension_medicarePartD_effectiveDate",
+      "DataType": "DateType",
+      "Ordinal": 65
+    },
+    {
+      "FieldName": "extension_medicarePartD_endDate",
+      "DataType": "DateType",
+      "Ordinal": 66
+    },
+    {
+      "FieldName": "communication_primaryLanguage_code",
+      "DataType": "StringType",
+      "Ordinal": 67
+    },
+    {
+      "FieldName": "extension_alternativeFormat_largePrint",
+      "DataType": "StringType",
+      "Ordinal": 68
+    },
+    {
+      "FieldName": "extension_alternativeFormat_braille",
+      "DataType": "StringType",
+      "Ordinal": 69
+    },
+    {
+      "FieldName": "extension_alternativeFormat_audioTape",
+      "DataType": "StringType",
+      "Ordinal": 70
+    },
+    {
+      "FieldName": "telecom_fax",
+      "DataType": "StringType",
+      "Ordinal": 71
+    },
+    {
+      "FieldName": "extension_inLEPProcessStatus",
+      "DataType": "StringType",
+      "Ordinal": 72
+    },
+    {
+      "FieldName": "contact_poa_name_text",
+      "DataType": "StringType",
+      "Ordinal": 73
+    },
+    {
+      "FieldName": "contact_poa_address_line1",
+      "DataType": "StringType",
+      "Ordinal": 74
+    },
+    {
+      "FieldName": "contact_poa_address_line2",
+      "DataType": "StringType",
+      "Ordinal": 75
+    },
+    {
+      "FieldName": "contact_poa_address_line3",
+      "DataType": "StringType",
+      "Ordinal": 76
+    },
+    {
+      "FieldName": "contact_poa_address_city",
+      "DataType": "StringType",
+      "Ordinal": 77
+    },
+    {
+      "FieldName": "contact_poa_address_district",
+      "DataType": "StringType",
+      "Ordinal": 78
+    },
+    {
+      "FieldName": "contact_poa_address_state",
+      "DataType": "StringType",
+      "Ordinal": 79
+    },
+    {
+      "FieldName": "contact_poa_address_postalCode",
+      "DataType": "StringType",
+      "Ordinal": 80
+    },
+    {
+      "FieldName": "contact_poa_telecom_phone",
+      "DataType": "StringType",
+      "Ordinal": 81
+    },
+    {
+      "FieldName": "contact_poa_relationship",
+      "DataType": "StringType",
+      "Ordinal": 82
+    },
+    {
+      "FieldName": "extension_race_ombCategory_code",
+      "DataType": "StringType",
+      "Ordinal": 83
+    },
+    {
+      "FieldName": "extension_race_text",
+      "DataType": "StringType",
+      "Ordinal": 84
+    },
+    {
+      "FieldName": "extension_race_dataSource",
+      "DataType": "StringType",
+      "Ordinal": 85
+    },
+    {
+      "FieldName": "identifier_ikaUniqueID",
+      "DataType": "StringType",
+      "Ordinal": 86
+    },
+    {
+      "FieldName": "extension_familyLinkIndicator",
+      "DataType": "StringType",
+      "Ordinal": 87
+    },
+    {
+      "FieldName": "extension_inPremiumDelinquencyProcess",
+      "DataType": "StringType",
+      "Ordinal": 88
+    },
+    {
+      "FieldName": "extension_thirdPartyLiability_effectiveDate",
+      "DataType": "DateType",
+      "Ordinal": 89
+    },
+    {
+      "FieldName": "extension_thirdPartyLiability_trnDate",
+      "DataType": "DateType",
+      "Ordinal": 90
+    },
+    {
+      "FieldName": "extension_owedPremium",
+      "DataType": "StringType",
+      "Ordinal": 91
+    },
+    {
+      "FieldName": "contact_caretaker_name_given_first",
+      "DataType": "StringType",
+      "Ordinal": 92
+    },
+    {
+      "FieldName": "contact_caretaker_name_family",
+      "DataType": "StringType",
+      "Ordinal": 93
+    },
+    {
+      "FieldName": "contact_caretaker_name_given_middle",
+      "DataType": "StringType",
+      "Ordinal": 94
+    },
+    {
+      "FieldName": "extension_ethnicity_ombCategory_code",
+      "DataType": "StringType",
+      "Ordinal": 95
+    },
+    {
+      "FieldName": "extension_ethnicity_dataSource",
+      "DataType": "StringType",
+      "Ordinal": 96
+    },
+    {
+      "FieldName": "communication_spokenLanguage_text",
+      "DataType": "StringType",
+      "Ordinal": 97
+    },
+    {
+      "FieldName": "communication_spokenLanguage_codeSystem",
+      "DataType": "StringType",
+      "Ordinal": 98
+    },
+    {
+      "FieldName": "communication_writtenLanguage_code",
+      "DataType": "StringType",
+      "Ordinal": 99
+    },
+    {
+      "FieldName": "communication_writtenLanguage_codeSystem",
+      "DataType": "StringType",
+      "Ordinal": 100
+    },
+    {
+      "FieldName": "communication_otherLanguage_text",
+      "DataType": "StringType",
+      "Ordinal": 101
+    },
+    {
+      "FieldName": "communication_otherLanguage_codeSystem",
+      "DataType": "StringType",
+      "Ordinal": 102
+    },
+    {
+      "FieldName": "extension_usCitizenStatus",
+      "DataType": "StringType",
+      "Ordinal": 103
+    },
+    {
+      "FieldName": "identifier_alternateKey1",
+      "DataType": "StringType",
+      "Ordinal": 104
+    },
+    {
+      "FieldName": "identifier_alternateKey2",
+      "DataType": "StringType",
+      "Ordinal": 105
+    },
+    {
+      "FieldName": "identifier_alternateKey3",
+      "DataType": "StringType",
+      "Ordinal": 106
+    },
+    {
+      "FieldName": "identifier_alternateKey4",
+      "DataType": "StringType",
+      "Ordinal": 107
+    },
+    {
+      "FieldName": "identifier_alternateKey5",
+      "DataType": "StringType",
+      "Ordinal": 108
+    },
+    {
+      "FieldName": "identifier_alternateKey6",
+      "DataType": "StringType",
+      "Ordinal": 109
+    },
+    {
+      "FieldName": "identifier_alternateKey7",
+      "DataType": "StringType",
+      "Ordinal": 110
+    },
+    {
+      "FieldName": "identifier_alternateKey8",
+      "DataType": "StringType",
+      "Ordinal": 111
+    },
+    {
+      "FieldName": "identifier_alternateKey9",
+      "DataType": "StringType",
+      "Ordinal": 112
+    },
+    {
+      "FieldName": "identifier_alternateKey10",
+      "DataType": "StringType",
+      "Ordinal": 113
+    },
+    {
+      "FieldName": "extension_maskedMemberID",
+      "DataType": "StringType",
+      "Ordinal": 114
+    },
+    {
+      "FieldName": "extension_enrolleeEducation",
+      "DataType": "StringType",
+      "Ordinal": 115
+    },
+    {
+      "FieldName": "extension_enrolleeEmployment",
+      "DataType": "StringType",
+      "Ordinal": 116
+    },
+    {
+      "FieldName": "extension_fullRowHash",
+      "DataType": "StringType",
+      "Ordinal": 117
+    },
+    {
+      "FieldName": "extension_coverageProduct_id",
+      "DataType": "StringType",
+      "Ordinal": 118
+    }
+  ]
+}

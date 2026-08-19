@@ -1,0 +1,476 @@
+{
+  "columnMapping": [
+    {
+      "recordType": [
+        {
+          "Field": "",
+          "Value": ""
+        }
+      ],
+      "selectColumns": [
+        {
+          "SourceColumn": "UNIQUEPERSONKEY",
+          "DestinationColumn": "identifier_uniquepersonkey",
+          "SourceColumnFormat": "",
+          "ColumnQuery": ""
+        },
+        {
+          "SourceColumn": "BENEFICIARYID",
+          "DestinationColumn": "identifier_beneficiaryID",
+          "SourceColumnFormat": "",
+          "ColumnQuery": ""
+        },
+        {
+          "SourceColumn": "LASTNAME",
+          "DestinationColumn": "name_family",
+          "SourceColumnFormat": "",
+          "ColumnQuery": ""
+        },
+        {
+          "SourceColumn": "FIRSTNAME",
+          "DestinationColumn": "name_given_first",
+          "SourceColumnFormat": "",
+          "ColumnQuery": ""
+        },
+        {
+          "SourceColumn": "MIDDLEINITIAL",
+          "DestinationColumn": "name_given_middle",
+          "SourceColumnFormat": "",
+          "ColumnQuery": ""
+        },
+        {
+          "SourceColumn": "DATEOFBIRTH",
+          "DestinationColumn": "birthDate",
+          "SourceColumnFormat": "yyyy-MM-dd",
+          "ColumnQuery": ""
+        },
+        {
+          "SourceColumn": "DECEASEDDATE",
+          "DestinationColumn": "deceasedDateTime",
+          "SourceColumnFormat": "yyyy-MM-dd",
+          "ColumnQuery": ""
+        },
+        {
+          "SourceColumn": "GENDER",
+          "DestinationColumn": "gender",
+          "SourceColumnFormat": "",
+          "ColumnQuery": ""
+        },
+        {
+          "SourceColumn": "PERMANENTADDRESSLINE1",
+          "DestinationColumn": "address_permanent_line1",
+          "SourceColumnFormat": "",
+          "ColumnQuery": ""
+        },
+        {
+          "SourceColumn": "PERMANENTADDRESSLINE2",
+          "DestinationColumn": "address_permanent_line2",
+          "SourceColumnFormat": "",
+          "ColumnQuery": ""
+        },
+        {
+          "SourceColumn": "PERMANENTCITY",
+          "DestinationColumn": "address_permanent_city",
+          "SourceColumnFormat": "",
+          "ColumnQuery": ""
+        },
+        {
+          "SourceColumn": "PERMANENTCOUNTY",
+          "DestinationColumn": "address_permanent_district",
+          "SourceColumnFormat": "",
+          "ColumnQuery": ""
+        },
+        {
+          "SourceColumn": "PERMANENTSTATE",
+          "DestinationColumn": "address_permanent_state",
+          "SourceColumnFormat": "",
+          "ColumnQuery": ""
+        },
+        {
+          "SourceColumn": "PERMANENTZIPCODE",
+          "DestinationColumn": "address_permanent_postalCode",
+          "SourceColumnFormat": "",
+          "ColumnQuery": ""
+        },
+        {
+          "SourceColumn": "MAILINGADDRESSLINE1",
+          "DestinationColumn": "address_mailing_line1",
+          "SourceColumnFormat": "",
+          "ColumnQuery": ""
+        },
+        {
+          "SourceColumn": "MAILINGADDRESSLINE2",
+          "DestinationColumn": "address_mailing_line2",
+          "SourceColumnFormat": "",
+          "ColumnQuery": ""
+        },
+        {
+          "SourceColumn": "MAILINGCITY",
+          "DestinationColumn": "address_mailing_city",
+          "SourceColumnFormat": "",
+          "ColumnQuery": ""
+        },
+        {
+          "SourceColumn": "MAILINGSTATE",
+          "DestinationColumn": "address_mailing_state",
+          "SourceColumnFormat": "",
+          "ColumnQuery": ""
+        },
+        {
+          "SourceColumn": "MAILINGZIPCODE",
+          "DestinationColumn": "address_mailing_postalCode",
+          "SourceColumnFormat": "",
+          "ColumnQuery": ""
+        },
+        {
+          "SourceColumn": "MAILINGCOUNTY",
+          "DestinationColumn": "address_mailing_district",
+          "SourceColumnFormat": "",
+          "ColumnQuery": ""
+        },
+        {
+          "SourceColumn": "PHONENUMBER",
+          "DestinationColumn": "telecom_phone_home",
+          "SourceColumnFormat": "",
+          "ColumnQuery": ""
+        },
+        {
+          "SourceColumn": "EMAIL",
+          "DestinationColumn": "telecom_email",
+          "SourceColumnFormat": "",
+          "ColumnQuery": ""
+        },
+        {
+          "SourceColumn": "MEDICAIDID",
+          "DestinationColumn": "identifier_medicaidID",
+          "SourceColumnFormat": "",
+          "ColumnQuery": ""
+        },
+        {
+          "SourceColumn": "FAX",
+          "DestinationColumn": "telecom_fax",
+          "SourceColumnFormat": "",
+          "ColumnQuery": ""
+        },
+        {
+          "SourceColumn": "RACE",
+          "DestinationColumn": "extension_race_ombCategory_code",
+          "SourceColumnFormat": "",
+          "ColumnQuery": ""
+        },
+        {
+          "SourceColumn": "RACECODE",
+          "DestinationColumn": "extension_race_text",
+          "SourceColumnFormat": "",
+          "ColumnQuery": ""
+        },
+        {
+          "SourceColumn": "RACEDATASOURCE",
+          "DestinationColumn": "extension_race_dataSource",
+          "SourceColumnFormat": "",
+          "ColumnQuery": ""
+        },
+        {
+          "SourceColumn": "CARETAKERFIRSTNAME",
+          "DestinationColumn": "contact_caretaker_name_given_first",
+          "SourceColumnFormat": "",
+          "ColumnQuery": ""
+        },
+        {
+          "SourceColumn": "CARETAKERLASTNAME",
+          "DestinationColumn": "contact_caretaker_name_family",
+          "SourceColumnFormat": "",
+          "ColumnQuery": ""
+        },
+        {
+          "SourceColumn": "CARETAKERMIDDLEINITIAL",
+          "DestinationColumn": "contact_caretaker_name_given_middle",
+          "SourceColumnFormat": "",
+          "ColumnQuery": ""
+        },
+        {
+          "SourceColumn": "ETHNICITY",
+          "DestinationColumn": "extension_ethnicity_ombCategory_code",
+          "SourceColumnFormat": "",
+          "ColumnQuery": ""
+        },
+        {
+          "SourceColumn": "ETHNICITYDATASOURCE",
+          "DestinationColumn": "extension_ethnicity_dataSource",
+          "SourceColumnFormat": "",
+          "ColumnQuery": ""
+        },
+        {
+          "SourceColumn": "SPOKENLANGUAGE",
+          "DestinationColumn": "communication_spokenLanguage_text",
+          "SourceColumnFormat": "",
+          "ColumnQuery": ""
+        },
+        {
+          "SourceColumn": "SPOKENLANGUAGESOURCE",
+          "DestinationColumn": "communication_spokenLanguage_codeSystem",
+          "SourceColumnFormat": "",
+          "ColumnQuery": ""
+        },
+        {
+          "SourceColumn": "WRITTENLANGUAGE",
+          "DestinationColumn": "communication_writtenLanguage_code",
+          "SourceColumnFormat": "",
+          "ColumnQuery": ""
+        },
+        {
+          "SourceColumn": "WRITTENLANGUAGESOURCE",
+          "DestinationColumn": "communication_writtenLanguage_codeSystem",
+          "SourceColumnFormat": "",
+          "ColumnQuery": ""
+        },
+        {
+          "SourceColumn": "OTHERLANGUAGE",
+          "DestinationColumn": "communication_otherLanguage_text",
+          "SourceColumnFormat": "",
+          "ColumnQuery": ""
+        },
+        {
+          "SourceColumn": "OTHERLANGUAGESOURCE",
+          "DestinationColumn": "communication_otherLanguage_codeSystem",
+          "SourceColumnFormat": "",
+          "ColumnQuery": ""
+        },
+        {
+          "SourceColumn": "USCITIZEN",
+          "DestinationColumn": "extension_usCitizenStatus",
+          "SourceColumnFormat": "",
+          "ColumnQuery": ""
+        },
+        {
+          "SourceColumn": "ALTERNATEKEY1",
+          "DestinationColumn": "identifier_alternateKey1",
+          "SourceColumnFormat": "",
+          "ColumnQuery": ""
+        },
+        {
+          "SourceColumn": "ALTERNATEKEY2",
+          "DestinationColumn": "identifier_alternateKey2",
+          "SourceColumnFormat": "",
+          "ColumnQuery": ""
+        },
+        {
+          "SourceColumn": "ALTERNATEKEY3",
+          "DestinationColumn": "identifier_alternateKey3",
+          "SourceColumnFormat": "",
+          "ColumnQuery": ""
+        },
+        {
+          "SourceColumn": "ALTERNATEKEY4",
+          "DestinationColumn": "identifier_alternateKey4",
+          "SourceColumnFormat": "",
+          "ColumnQuery": ""
+        },
+        {
+          "SourceColumn": "ALTERNATEKEY5",
+          "DestinationColumn": "identifier_alternateKey5",
+          "SourceColumnFormat": "",
+          "ColumnQuery": ""
+        },
+        {
+          "SourceColumn": "ALTERNATEKEY6",
+          "DestinationColumn": "identifier_alternateKey6",
+          "SourceColumnFormat": "",
+          "ColumnQuery": ""
+        },
+        {
+          "SourceColumn": "ALTERNATEKEY7",
+          "DestinationColumn": "identifier_alternateKey7",
+          "SourceColumnFormat": "",
+          "ColumnQuery": ""
+        },
+        {
+          "SourceColumn": "ALTERNATEKEY8",
+          "DestinationColumn": "identifier_alternateKey8",
+          "SourceColumnFormat": "",
+          "ColumnQuery": ""
+        },
+        {
+          "SourceColumn": "ALTERNATEKEY9",
+          "DestinationColumn": "identifier_alternateKey9",
+          "SourceColumnFormat": "",
+          "ColumnQuery": ""
+        },
+        {
+          "SourceColumn": "ALTERNATEKEY10",
+          "DestinationColumn": "identifier_alternateKey10",
+          "SourceColumnFormat": "",
+          "ColumnQuery": ""
+        },
+        {
+          "SourceColumn": "MASKEDMEMBERID",
+          "DestinationColumn": "extension_maskedMemberID",
+          "SourceColumnFormat": "",
+          "ColumnQuery": ""
+        },
+        {
+          "SourceColumn": "ENROLLEEEDUCATION",
+          "DestinationColumn": "extension_enrolleeEducation",
+          "SourceColumnFormat": "",
+          "ColumnQuery": ""
+        },
+        {
+          "SourceColumn": "ENROLLEEEMPLOYMENT",
+          "DestinationColumn": "extension_enrolleeEmployment",
+          "SourceColumnFormat": "",
+          "ColumnQuery": ""
+        },
+        {
+          "SourceColumn": "PLANMEMBERID",
+          "DestinationColumn": "identifier_planMemberID",
+          "SourceColumnFormat": "",
+          "ColumnQuery": ""
+        },
+        {
+          "SourceColumn": "SUBSCRIBERID",
+          "DestinationColumn": "identifier_subscriberID",
+          "SourceColumnFormat": "",
+          "ColumnQuery": ""
+        },
+        {
+          "SourceColumn": "STARTDATE",
+          "DestinationColumn": "extension_coverage_startDate",
+          "SourceColumnFormat": "yyyy-MM-dd",
+          "ColumnQuery": ""
+        },
+        {
+          "SourceColumn": "ENDDATE",
+          "DestinationColumn": "extension_coverage_endDate",
+          "SourceColumnFormat": "yyyy-MM-dd",
+          "ColumnQuery": ""
+        },
+        {
+          "SourceColumn": "SUBSCRIBERFLAG",
+          "DestinationColumn": "extension_subscriberFlag",
+          "SourceColumnFormat": "",
+          "ColumnQuery": ""
+        },
+        {
+          "SourceColumn": "FULLNAME",
+          "DestinationColumn": "name_text",
+          "SourceColumnFormat": "",
+          "ColumnQuery": ""
+        },
+        {
+          "SourceColumn": "TITLE",
+          "DestinationColumn": "name_prefix",
+          "SourceColumnFormat": "",
+          "ColumnQuery": ""
+        },
+        {
+          "SourceColumn": "SUFFIX",
+          "DestinationColumn": "name_suffix",
+          "SourceColumnFormat": "",
+          "ColumnQuery": ""
+        },
+        {
+          "SourceColumn": "GATEWAYMEMBERSTATUS",
+          "DestinationColumn": "extension_gatewayMemberStatus",
+          "SourceColumnFormat": "",
+          "ColumnQuery": ""
+        },
+        {
+          "SourceColumn": "ALTERNATEMEMBERID",
+          "DestinationColumn": "identifier_alternateMemberID",
+          "SourceColumnFormat": "",
+          "ColumnQuery": ""
+        },
+        {
+          "SourceColumn": "ENROLLEEUNIQUEID",
+          "DestinationColumn": "identifier_enrolleeUniqueID",
+          "SourceColumnFormat": "",
+          "ColumnQuery": ""
+        },
+        {
+          "SourceColumn": "PERMANENTADDRESSLINE3",
+          "DestinationColumn": "address_permanent_line3",
+          "SourceColumnFormat": "",
+          "ColumnQuery": ""
+        },
+        {
+          "SourceColumn": "PERMANENTSCC",
+          "DestinationColumn": "address_permanent_extension_scc",
+          "SourceColumnFormat": "",
+          "ColumnQuery": ""
+        },
+        {
+          "SourceColumn": "MAILINGADDRESSLINE3",
+          "DestinationColumn": "address_mailing_line3",
+          "SourceColumnFormat": "",
+          "ColumnQuery": ""
+        },
+        {
+          "SourceColumn": "BILLINGADDRESSLINE1",
+          "DestinationColumn": "address_billing_line1",
+          "SourceColumnFormat": "",
+          "ColumnQuery": ""
+        },
+        {
+          "SourceColumn": "BILLINGADDRESSLINE2",
+          "DestinationColumn": "address_billing_line2",
+          "SourceColumnFormat": "",
+          "ColumnQuery": ""
+        },
+        {
+          "SourceColumn": "BILLINGADDRESSLINE3",
+          "DestinationColumn": "address_billing_line3",
+          "SourceColumnFormat": "",
+          "ColumnQuery": ""
+        },
+        {
+          "SourceColumn": "ALTERNATEPHONENUMBER",
+          "DestinationColumn": "telecom_phone_alternate",
+          "SourceColumnFormat": "",
+          "ColumnQuery": ""
+        },
+        {
+          "SourceColumn": "PRODUCTID",
+          "DestinationColumn": "extension_coverageProduct_id",
+          "SourceColumnFormat": "",
+          "ColumnQuery": ""
+        },
+        {
+          "SourceColumn": "",
+          "DestinationColumn": "extension_fullRowHash",
+          "ColumnQuery": "sha2(concat('|',COALESCE(UNIQUEPERSONKEY,''),'|',COALESCE(BENEFICIARYID,''),'|',COALESCE(LASTNAME,''),'|',COALESCE(FIRSTNAME,''),'|',COALESCE(MIDDLEINITIAL,''),'|',COALESCE(DATEOFBIRTH,''),'|',COALESCE(DECEASEDDATE,''),'|',COALESCE(GENDER,''),'|',COALESCE(PERMANENTADDRESSLINE1,''),'|',COALESCE(PERMANENTADDRESSLINE2,''),'|',COALESCE(PERMANENTCITY,''),'|',COALESCE(PERMANENTCOUNTY,''),'|',COALESCE(PERMANENTSTATE,''),'|',COALESCE(PERMANENTZIPCODE,''),'|',COALESCE(MAILINGADDRESSLINE1,''),'|',COALESCE(MAILINGADDRESSLINE2,''),'|',COALESCE(MAILINGCITY,''),'|',COALESCE(MAILINGSTATE,''),'|',COALESCE(MAILINGZIPCODE,''),'|',COALESCE(MAILINGCOUNTY,''),'|',COALESCE(PHONENUMBER,''),'|',COALESCE(EMAIL,''),'|',COALESCE(MEDICAIDID,''),'|',COALESCE(FAX,''),'|',COALESCE(RACE,''),'|',COALESCE(RACECODE,''),'|',COALESCE(RACEDATASOURCE,''),'|',COALESCE(CARETAKERFIRSTNAME,''),'|',COALESCE(CARETAKERLASTNAME,''),'|',COALESCE(CARETAKERMIDDLEINITIAL,''),'|',COALESCE(ETHNICITY,''),'|',COALESCE(ETHNICITYDATASOURCE,''),'|',COALESCE(SPOKENLANGUAGE,''),'|',COALESCE(SPOKENLANGUAGESOURCE,''),'|',COALESCE(WRITTENLANGUAGE,''),'|',COALESCE(WRITTENLANGUAGESOURCE,''),'|',COALESCE(OTHERLANGUAGE,''),'|',COALESCE(OTHERLANGUAGESOURCE,''),'|',COALESCE(USCITIZEN,''),'|',COALESCE(ALTERNATEKEY1,''),'|',COALESCE(ALTERNATEKEY2,''),'|',COALESCE(ALTERNATEKEY3,''),'|',COALESCE(ALTERNATEKEY4,''),'|',COALESCE(ALTERNATEKEY5,''),'|',COALESCE(ALTERNATEKEY6,''),'|',COALESCE(ALTERNATEKEY7,''),'|',COALESCE(ALTERNATEKEY8,''),'|',COALESCE(ALTERNATEKEY9,''),'|',COALESCE(ALTERNATEKEY10,''),'|',COALESCE(MASKEDMEMBERID,''),'|',COALESCE(ENROLLEEEDUCATION,''),'|',COALESCE(ENROLLEEEMPLOYMENT,''),'|',COALESCE(PLANMEMBERID,''),'|',COALESCE(SUBSCRIBERID,''),'|',COALESCE(STARTDATE,''),'|',COALESCE(ENDDATE,''),'|',COALESCE(SUBSCRIBERFLAG,''),'|',COALESCE(FULLNAME,''),'|',COALESCE(TITLE,''),'|',COALESCE(SUFFIX,''),'|',COALESCE(GATEWAYMEMBERSTATUS,''),'|',COALESCE(ALTERNATEMEMBERID,''),'|',COALESCE(ENROLLEEUNIQUEID,''),'|',COALESCE(PERMANENTADDRESSLINE3,''),'|',COALESCE(PERMANENTSCC,''),'|',COALESCE(MAILINGADDRESSLINE3,''),'|',COALESCE(BILLINGADDRESSLINE1,''),'|',COALESCE(BILLINGADDRESSLINE2,''),'|',COALESCE(BILLINGADDRESSLINE3,''),'|',COALESCE(ALTERNATEPHONENUMBER,''),'|',COALESCE(PRODUCTID,''),'|',COALESCE(FILE_ID,''),'|',COALESCE(FILE_LAYOUT_ID,''),'|',COALESCE(FILE_LAYOUT_DESCRIPTION,''),'|',COALESCE(CLIENT_ID,''),'|',COALESCE(LOAD_DATETIME,'')),256)",
+          "SourceColumnFormat": ""
+        },
+        {
+          "SourceColumn": "FILE_ID",
+          "DestinationColumn": "FileID",
+          "SourceColumnFormat": "",
+          "ColumnQuery": ""
+        },
+        {
+          "SourceColumn": "FILE_LAYOUT_ID",
+          "DestinationColumn": "FileLayoutID",
+          "SourceColumnFormat": "",
+          "ColumnQuery": ""
+        },
+        {
+          "SourceColumn": "FILE_LAYOUT_DESCRIPTION",
+          "DestinationColumn": "FileLayoutDescription",
+          "SourceColumnFormat": "",
+          "ColumnQuery": ""
+        },
+        {
+          "SourceColumn": "CLIENT_ID",
+          "DestinationColumn": "ClientID",
+          "SourceColumnFormat": "",
+          "ColumnQuery": ""
+        },
+        {
+          "SourceColumn": "LOAD_DATETIME",
+          "DestinationColumn": "LoadDateTime",
+          "SourceColumnFormat": "",
+          "ColumnQuery": ""
+        }
+      ]
+    }
+  ]
+}

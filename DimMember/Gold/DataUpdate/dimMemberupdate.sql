@@ -1,0 +1,155 @@
+MERGE INTO DestinationTable t
+USING (
+    SELECT *
+    FROM (
+        SELECT NULL AS mID, a.*
+        FROM tempMemberSQLScript a
+        JOIN DestinationTable t 
+            ON a.ESAIInternalPersonID = t.ESAIInternalPersonID
+           AND a.memberKey <> t.memberKey
+           AND t.isCurrent = TRUE
+        
+        UNION ALL
+        
+        SELECT a.ESAIInternalPersonID AS mID, a.*
+        FROM tempMemberSQLScript a
+    )
+) s
+ON s.mID = t.ESAIInternalPersonID
+
+WHEN MATCHED AND s.memberKey <> t.memberKey AND t.isCurrent = TRUE THEN 
+    UPDATE SET    
+        t.effectiveEndDate = CURRENT_DATE(),
+        t.isCurrent = FALSE
+
+WHEN NOT MATCHED THEN 
+    INSERT (
+        memberKey,
+        ESAIInternalPersonID,
+        identifier_uniquepersonkey,
+        identifier_planMemberID,
+        identifier_subscriberID,
+        identifier_beneficiaryID,
+        name_family,
+        name_given_first,
+        name_given_middle,
+        name_prefix,
+        name_suffix,
+        name_text,
+        identifier_enrolleeUniqueID,
+        birthDate,
+        deceasedDateTime,
+        gender,
+        address_permanent_line1,
+        address_permanent_line2,
+        address_permanent_city,
+        address_permanent_district,
+        address_permanent_state,
+        address_permanent_postalCode,
+        address_mailing_line1,
+        address_mailing_line2,
+        address_mailing_city,
+        address_mailing_state,
+        address_mailing_postalCode,
+        address_mailing_district,
+        telecom_phone_home,
+        telecom_email,
+        identifier_medicaidID,
+        telecom_fax,
+        extension_race_text,
+        extension_race_dataSource,
+        contact_caretaker_name_given_first,
+        contact_caretaker_name_family,
+        contact_caretaker_name_given_middle,
+        extension_ethnicity_ombCategory_code,
+        extension_ethnicity_dataSource,
+        communication_spokenLanguage_text,
+        communication_spokenLanguage_codeSystem,
+        communication_writtenLanguage_code,
+        communication_writtenLanguage_codeSystem,
+        communication_otherLanguage_text,
+        communication_otherLanguage_codeSystem,
+        isUSCitizen,
+        identifier_alternateKey1,
+        identifier_alternateKey2,
+        identifier_alternateKey3,
+        identifier_alternateKey4,
+        identifier_alternateKey5,
+        identifier_alternateKey6,
+        identifier_alternateKey7,
+        identifier_alternateKey8,
+        identifier_alternateKey9,
+        identifier_alternateKey10,
+        extension_maskedMemberID,
+        extension_enrolleeEducation,
+        extension_enrolleeEmployment,
+        extension_coverageProduct_id,
+        effectiveStartDate,
+        effectiveEndDate,
+        isCurrent
+    )
+    VALUES (
+        s.memberKey,
+        s.ESAIInternalPersonID,
+        s.identifier_uniquepersonkey,
+        s.identifier_planMemberID,
+        s.identifier_subscriberID,
+        s.identifier_beneficiaryID,
+        s.name_family,
+        s.name_given_first,
+        s.name_given_middle,
+        s.name_prefix,
+        s.name_suffix,
+        s.name_text,
+        s.identifier_enrolleeUniqueID,
+        s.birthDate,
+        s.deceasedDateTime,
+        s.gender,
+        s.address_permanent_line1,
+        s.address_permanent_line2,
+        s.address_permanent_city,
+        s.address_permanent_district,
+        s.address_permanent_state,
+        s.address_permanent_postalCode,
+        s.address_mailing_line1,
+        s.address_mailing_line2,
+        s.address_mailing_city,
+        s.address_mailing_state,
+        s.address_mailing_postalCode,
+        s.address_mailing_district,
+        s.telecom_phone_home,
+        s.telecom_email,
+        s.identifier_medicaidID,
+        s.telecom_fax,
+        s.extension_race_text,
+        s.extension_race_dataSource,
+        s.contact_caretaker_name_given_first,
+        s.contact_caretaker_name_family,
+        s.contact_caretaker_name_given_middle,
+        s.extension_ethnicity_ombCategory_code,
+        s.extension_ethnicity_dataSource,
+        s.communication_spokenLanguage_text,
+        s.communication_spokenLanguage_codeSystem,
+        s.communication_writtenLanguage_code,
+        s.communication_writtenLanguage_codeSystem,
+        s.communication_otherLanguage_text,
+        s.communication_otherLanguage_codeSystem,
+        s.isUSCitizen,
+        s.identifier_alternateKey1,
+        s.identifier_alternateKey2,
+        s.identifier_alternateKey3,
+        s.identifier_alternateKey4,
+        s.identifier_alternateKey5,
+        s.identifier_alternateKey6,
+        s.identifier_alternateKey7,
+        s.identifier_alternateKey8,
+        s.identifier_alternateKey9,
+        s.identifier_alternateKey10,
+        s.extension_maskedMemberID,
+        s.extension_enrolleeEducation,
+        s.extension_enrolleeEmployment,
+        s.extension_coverageProduct_id,
+        s.effectiveStartDate,
+        s.effectiveEndDate,
+        s.isCurrent
+    );

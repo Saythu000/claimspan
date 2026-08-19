@@ -1,0 +1,22 @@
+{
+  "SubLayerProcessing": [
+    {
+      "SubGroupEntity": "hcc",
+      "DestinationTable": "claimspan.silver.silver_hcc",
+      "SourceTables": [
+        {
+          "Entity": "HCCDataSet",
+          "SourceTable": "#clientCode/OperationalData/RAQ/TepReference/dbo/HCCDataset",
+          "SourceFormat": "parquet"
+        },
+        {
+          "Entity": "HCCEffectiveYear",
+          "SourceTable": "#clientCode/OperationalData/RAQ/TepReference/dbo/HCCEffectiveYear",
+          "SourceFormat": "parquet"
+        }
+      ],
+      "SQLScript": "WITH THIS AS (SELECT ds.HCCNumber, ds.HCCDescription, ds.HCCVersion, ds.HCCType, ds.IsChronic, ey.EffectiveYear, ey.EffectiveDateStart, ey.EffectiveDateEnd, hash(concat(coalesce(cast(ds.HCCNumber as string), '|'), '|', coalesce(cast(ds.HCCDescription as string), '|'), '|', coalesce(cast(ds.HCCVersion as string), '|'), '|', coalesce(cast(ds.HCCType as string), '|'), '|', coalesce(cast(ds.IsChronic as string), 'false'), '|', coalesce(cast(ey.EffectiveYear as string), '|'), '|', coalesce(cast(ey.EffectiveDateStart as string), '|'), '|', coalesce(cast(ey.EffectiveDateEnd as string), '|'))) AS hashKey, ROW_NUMBER() OVER(PARTITION BY coalesce(cast(ds.HCCNumber as string), '|'), coalesce(cast(ds.HCCVersion as string), '|'), coalesce(cast(ds.HCCType as string), '|'), coalesce(cast(ey.EffectiveYear as string), '|') ORDER BY coalesce(cast(ds.CreationDatetime as string), '9999-12-31') DESC) AS RowNumber FROM HCCDataSet ds LEFT JOIN HCCEffectiveYear ey ON ds.HCCEffectiveYearID = ey.HCCEffectiveYearID) SELECT HCCNumber, HCCDescription, HCCVersion, HCCType, IsChronic, EffectiveYear, EffectiveDateStart, EffectiveDateEnd, hashKey FROM THIS WHERE RowNumber = 1",
+      "MergeScript": "MERGE INTO claimspan.silver.silver_hcc t USING (SELECT * FROM tempSQLScript) s ON coalesce(cast(s.HCCNumber as string),'|') = coalesce(cast(t.HCCNumber as string),'|') AND coalesce(cast(s.EffectiveYear as string),'|') = coalesce(cast(t.EffectiveYear as string),'|') AND coalesce(cast(s.HCCVersion as string),'|') = coalesce(cast(t.HCCVersion as string),'|') AND coalesce(cast(s.HCCType as string),'|') = coalesce(cast(t.HCCType as string),'|') WHEN MATCHED AND t.hashKey <> s.hashKey THEN UPDATE SET t.HCCNumber = s.HCCNumber, t.HCCDescription = s.HCCDescription, t.HCCVersion = s.HCCVersion, t.HCCType = s.HCCType, t.IsChronic = s.IsChronic, t.EffectiveYear = s.EffectiveYear, t.EffectiveDateStart = s.EffectiveDateStart, t.EffectiveDateEnd = s.EffectiveDateEnd, t.hashKey = s.hashKey WHEN NOT MATCHED THEN INSERT (HCCNumber, HCCDescription, HCCVersion, HCCType, IsChronic, EffectiveYear, EffectiveDateStart, EffectiveDateEnd, hashKey) VALUES (s.HCCNumber, s.HCCDescription, s.HCCVersion, s.HCCType, s.IsChronic, s.EffectiveYear, s.EffectiveDateStart, s.EffectiveDateEnd, s.hashKey)"
+    }
+  ]
+}

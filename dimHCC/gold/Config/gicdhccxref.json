@@ -1,0 +1,37 @@
+{
+  "SubLayerProcessing": [
+    {
+      "SubGroupEntity": "icdHCCXref",
+      "DestinationTable": "claimspan.gold.gold_icdhccxref",
+      "SourceTables": [
+        {
+          "Entity": "HCCICDDatasetXref",
+          "SourceTable": "#clientCode/OperationalData/RAQ/TepReference/dbo/HCCICDDatasetXref",
+          "SourceFormat": "parquet"
+        },
+        {
+          "Entity": "ICDDataset",
+          "SourceTable": "#clientCode/OperationalData/RAQ/TepReference/dbo/ICDDataset",
+          "SourceFormat": "parquet"
+        },
+        {
+          "Entity": "ICDEffectiveYear",
+          "SourceTable": "#clientCode/OperationalData/RAQ/TepReference/dbo/ICDEffectiveYear",
+          "SourceFormat": "parquet"
+        },
+        {
+          "Entity": "HCCDataset",
+          "SourceTable": "#clientCode/OperationalData/RAQ/TepReference/dbo/HCCDataset",
+          "SourceFormat": "parquet"
+        },
+        {
+          "Entity": "HCCEffectiveYear",
+          "SourceTable": "#clientCode/OperationalData/RAQ/TepReference/dbo/HCCEffectiveYear",
+          "SourceFormat": "parquet"
+        }
+      ],
+      "SQLScript": "SELECT DISTINCT XR.ICD AS icd, IC.CodeType AS icdCodeType, IY.EffectiveYear AS icdEffectiveYear, HC.hccNumber, HC.hccVersion, HC.hccType, HY.EffectiveYear AS hccEffectiveYear, XR.isPrimary, XR.EffectiveDateStart AS effectiveStartDate, XR.EffectiveDateEnd AS effectiveEndDate, cast(hash(concat(coalesce(XR.ICD, ''), '|', coalesce(IC.CodeType, ''), '|', coalesce(cast(IY.EffectiveYear as string), ''), '|', coalesce(HC.hccNumber, ''), '|', coalesce(HC.hccVersion, ''), '|', coalesce(HC.hccType, ''), '|', coalesce(cast(HY.EffectiveYear as string), ''), '|', coalesce(cast(XR.isPrimary as string), 'false'), '|', coalesce(cast(XR.EffectiveDateStart as string), ''), '|', coalesce(cast(XR.EffectiveDateEnd as string), ''))) as bigint) AS icdHCCKey FROM HCCICDDatasetXref XR JOIN ICDDataset IC ON IC.ICDDatasetID = XR.ICDDatasetID JOIN ICDEffectiveYear IY ON IC.ICDEffectiveYearID = IY.ICDEffectiveYearID JOIN HCCDataset HC ON XR.HCCDatasetID = HC.HCCDatasetID AND UPPER(HC.HCCType) IN ('COMM', 'ESRD') JOIN HCCEffectiveYear HY ON HC.HCCEffectiveYearID = HY.HCCEffectiveYearID ORDER BY icd, effectiveStartDate, effectiveEndDate, HC.hccNumber",
+      "MergeScript": "MERGE INTO claimspan.gold.gold_icdhccxref t USING (SELECT * FROM tempSQLScript) s ON coalesce(s.icd, '') = coalesce(t.icd, '') AND coalesce(s.icdCodeType, '') = coalesce(t.icdCodeType, '') AND coalesce(s.icdEffectiveYear, -1) = coalesce(t.icdEffectiveYear, -1) AND coalesce(s.hccNumber, '') = coalesce(t.hccNumber, '') AND coalesce(s.hccVersion, '') = coalesce(t.hccVersion, '') AND coalesce(s.hccType, '') = coalesce(t.hccType, '') AND coalesce(s.hccEffectiveYear, -1) = coalesce(t.hccEffectiveYear, -1) AND coalesce(s.effectiveStartDate, '1900-01-01') = coalesce(t.effectiveStartDate, '1900-01-01') AND coalesce(s.effectiveEndDate, '1900-01-01') = coalesce(t.effectiveEndDate, '1900-01-01') WHEN MATCHED AND t.icdHCCKey <> s.icdHCCKey THEN UPDATE SET t.icdHCCKey = s.icdHCCKey, t.icd = s.icd, t.icdCodeType = s.icdCodeType, t.icdEffectiveYear = s.icdEffectiveYear, t.hccNumber = s.hccNumber, t.hccVersion = s.hccVersion, t.hccType = s.hccType, t.hccEffectiveYear = s.hccEffectiveYear, t.effectiveStartDate = s.effectiveStartDate, t.effectiveEndDate = s.effectiveEndDate, t.isPrimary = s.isPrimary WHEN NOT MATCHED THEN INSERT (icdHCCKey, icd, icdCodeType, icdEffectiveYear, hccNumber, hccVersion, hccType, hccEffectiveYear, effectiveStartDate, effectiveEndDate, isPrimary) VALUES (s.icdHCCKey, s.icd, s.icdCodeType, s.icdEffectiveYear, s.hccNumber, s.hccVersion, s.hccType, s.hccEffectiveYear, s.effectiveStartDate, s.effectiveEndDate, s.isPrimary)"
+    }
+  ]
+}
