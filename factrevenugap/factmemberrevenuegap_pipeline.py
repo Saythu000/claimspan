@@ -7,13 +7,13 @@ dbutils.widgets.removeAll()
 import os, sys, json
 from pathlib import Path
 
-# Step 1: Ensure Target Database Schemas Exist
-spark.sql("CREATE DATABASE IF NOT EXISTS claimsprocessing.silver")
-spark.sql("CREATE DATABASE IF NOT EXISTS claimsprocessing.gold")
+# Step 1: Ensure Target Database Schemas Exist under claimspan catalog
+spark.sql("CREATE DATABASE IF NOT EXISTS claimspan.silver")
+spark.sql("CREATE DATABASE IF NOT EXISTS claimspan.gold")
 
 # Step 2: Ensure DDL tables exist
 spark.sql("""
-CREATE TABLE IF NOT EXISTS claimsprocessing.gold.factmemberrevenuegap (
+CREATE TABLE IF NOT EXISTS claimspan.gold.gold_factmemberrevenuegap (
     pecYearMonthKey             INT,
     clientKey                  INT,
     memberKey                  BIGINT,
@@ -53,20 +53,20 @@ print(f"Loading Fact Config from: {config_path}")
 with open(config_path, "r") as f:
     config_data = json.load(f)["SubLayerProcessing"][0]
 
-# Setup Temporary Views for all conformed dimension tables
-spark.sql("CREATE TABLE IF NOT EXISTS claimsprocessing.silver.silver_member_revenue_gap (clientCode STRING, planMemberID STRING, subscriberID STRING, providerID STRING, hccNumber STRING, HCCVersion STRING, alertCategory STRING, planID STRING, reportMonth STRING, closureReason STRING, snapshotDate DATE, lastDCConfirmedDate DATE, lastPCPVisitDate DATE, lastAWVDate DATE) USING delta")
+# Setup Temporary Views for all conformed dimension tables under claimspan
+spark.sql("CREATE TABLE IF NOT EXISTS claimspan.silver.silver_member_revenue_gap (clientCode STRING, planMemberID STRING, subscriberID STRING, providerID STRING, hccNumber STRING, HCCVersion STRING, alertCategory STRING, planID STRING, reportMonth STRING, closureReason STRING, snapshotDate DATE, lastDCConfirmedDate DATE, lastPCPVisitDate DATE, lastAWVDate DATE) USING delta")
 
-spark.table("claimsprocessing.silver.silver_member_revenue_gap").createOrReplaceTempView("memberRevenueGap")
-spark.table("claimsprocessing.gold.gold_dimclient").createOrReplaceTempView("dimClient")
-spark.table("claimsprocessing.gold.gold_dimmember").createOrReplaceTempView("dimMember")
-spark.table("claimsprocessing.gold.gold_ma_membergroup").createOrReplaceTempView("dimMemberGroup")
-spark.table("claimsprocessing.gold.gold_dimhcc").createOrReplaceTempView("dimHCC")
-spark.table("claimsprocessing.gold.gold_dimalertgroup").createOrReplaceTempView("dimAlertGroup")
-spark.table("claimsprocessing.gold.gold_dimdate").createOrReplaceTempView("dimDate")
-spark.table("claimsprocessing.gold.gold_dimmonth").createOrReplaceTempView("dimMonth")
+spark.table("claimspan.silver.silver_member_revenue_gap").createOrReplaceTempView("memberRevenueGap")
+spark.table("claimspan.gold.gold_dimclient").createOrReplaceTempView("dimClient")
+spark.table("claimspan.gold.gold_dimmember").createOrReplaceTempView("dimMember")
+spark.table("claimspan.gold.gold_ma_membergroup").createOrReplaceTempView("dimMemberGroup")
+spark.table("claimspan.gold.gold_dimhcc").createOrReplaceTempView("dimHCC")
+spark.table("claimspan.gold.gold_dimalertgroup").createOrReplaceTempView("dimAlertGroup")
+spark.table("claimspan.gold.gold_dimdate").createOrReplaceTempView("dimDate")
+spark.table("claimspan.gold.gold_dimmonth").createOrReplaceTempView("dimMonth")
 
-if spark.catalog.tableExists("claimsprocessing.gold.gold_dimprovider"):
-    spark.table("claimsprocessing.gold.gold_dimprovider").createOrReplaceTempView("dimProvider")
+if spark.catalog.tableExists("claimspan.gold.gold_dimprovider"):
+    spark.table("claimspan.gold.gold_dimprovider").createOrReplaceTempView("dimProvider")
 else:
     spark.sql("CREATE OR REPLACE TEMP VIEW dimProvider AS SELECT -99 AS providerKey, '' AS providerID, 1 AS isCurrent")
 
@@ -95,12 +95,12 @@ display(df_count)
 
 # COMMAND ----------
 
-display(spark.sql("SHOW TABLES IN claimsprocessing.gold"))
+display(spark.sql("SHOW TABLES IN claimspan.gold"))
 
 # COMMAND ----------
 
 # MAGIC %sql
-# MAGIC SHOW TABLES IN claimsprocessing.gold;
+# MAGIC SHOW TABLES IN claimspan.gold;
 
 # COMMAND ----------
 
@@ -114,5 +114,4 @@ display(spark.sql("SHOW TABLES IN claimsprocessing.gold"))
 # MAGIC     hccKey,
 # MAGIC     snapshotDateKey,
 # MAGIC     isHCCClosed
-# MAGIC FROM claimsprocessing.gold.factmemberrevenuegap;
-
+# MAGIC FROM claimspan.gold.gold_factmemberrevenuegap;
