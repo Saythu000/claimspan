@@ -1,0 +1,17 @@
+{
+  "SubLayerProcessing": [
+    {
+      "SubGroupEntity": "dimMemberGroup",
+      "DestinationTable": "claimspan.gold.gold_ma_membergroup",
+      "SourceTables": [
+        {
+          "Entity": "member_group",
+          "SourceTable": "claimspan.silver.silver_member_group",
+          "SourceFormat": "delta"
+        }
+      ],
+      "SQLScriptPath": "/Workspace/ClaimsProcessing/DimMember/Gold/DataProcessing/dimmembergroupprocessing.sql",
+      "MergeScriptPath": "/Workspace/ClaimsProcessing/DimMember/Gold/DataUpdate/dimmembergroupupdate.sql"
+    }
+  ]
+}
